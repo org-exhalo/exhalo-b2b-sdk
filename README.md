@@ -7,6 +7,7 @@ A description of this package.
 Add this repository as a dependency to your app by [Swift PAckage Manager](https://developer.apple.com/documentation/xcode/adding-package-dependencies-to-your-app)
 
 Dependency rule: Exact Version
+
 Version: `0.0.1-alpha`
 
 <img width="1194" alt="Screenshot 2022-11-09 at 11 21 08" src="https://user-images.githubusercontent.com/23015635/200804989-5a07b219-b501-4772-8313-6abb9284264d.png">
