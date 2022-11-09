@@ -28,9 +28,7 @@ class ExhNetwork {
                 }
 
 
-                if httpResponse.statusCode != 200 {
-                    exhLog("FAIL statusCode")
-                    
+                if httpResponse.statusCode != 200 {                    
                     Amplitude.instance().logEvent("add_healthdata_request_completed", withEventProperties: [
                         "error_code": httpResponse.statusCode,
                         "successful_result": false
@@ -42,7 +40,8 @@ class ExhNetwork {
                 }
                 
                 Amplitude.instance().logEvent("add_healthdata_request_completed", withEventProperties: [
-                    "successful_result": true
+                    "successful_result": true,
+                    "error_code": 0
                 ])
             }
 
