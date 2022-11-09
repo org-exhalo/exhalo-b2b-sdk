@@ -38,7 +38,6 @@ Well, the first part is completed. Hooray! Now let's start to use Exhalo SDK.
     ExhDataManager.shared.initialize(projectId: "your-project-id", environment: ExhDataEnvironment)
 
     public enum ExhDataEnvironment {
-        case dev
         case acc
         case prod
     }
