@@ -14,8 +14,8 @@
             filePath = "Sources/ExhaloSDKPackage/ExhDataManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "144"
-            endingLineNumber = "144"
+            startingLineNumber = "150"
+            endingLineNumber = "150"
             landmarkName = "fetchData()"
             landmarkType = "7">
          </BreakpointContent>
@@ -30,8 +30,8 @@
             filePath = "Sources/ExhaloSDKPackage/ExhDataManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "223"
-            endingLineNumber = "223"
+            startingLineNumber = "229"
+            endingLineNumber = "229"
             landmarkName = "prepareHealthData(sleepData:hrData:hrvData:activityData:mindfulnessMinutes:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -46,9 +46,9 @@
             filePath = "Sources/ExhaloSDKPackage/ExhDataManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "258"
-            endingLineNumber = "258"
-            landmarkName = "send(model:completion:)"
+            startingLineNumber = "264"
+            endingLineNumber = "264"
+            landmarkName = "getDatesArray()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

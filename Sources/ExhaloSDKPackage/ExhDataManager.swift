@@ -24,10 +24,12 @@ public class ExhDataManager {
             Setter.value(false, forKey: .hasHealthKitPermission)
             exhLog("[ExhDataManager] HealthKitPermission access not granted\nRun ExhDataManager.shared.setHealthKitPermission( true ) ")
             
-            Amplitude.instance().logEvent("hkit_permissions_granted")
+            
 
             return
         }
+        
+        Amplitude.instance().logEvent("hkit_permissions_granted")
 
         Setter.value(isAccessGranted, forKey: .hasHealthKitPermission)
         ExhHealthKitManager.shared.requestAuthorization { [weak self] succes, error in
@@ -41,7 +43,11 @@ public class ExhDataManager {
     }
 
     public func initialize(projectId: String, environment: ExhDataEnvironment) {
-        Amplitude.instance().initializeApiKey("7761f8a8114949c5eaa1a1783fe259c2")
+        if (environment != .prod) {
+            Amplitude.instance().initializeApiKey("7761f8a8114949c5eaa1a1783fe259c2")
+        } else {
+            Amplitude.instance().initializeApiKey("b99ad693aa8410963698cd4658b1ecc5")
+        }
         
         let envString =
         environment == .prod ? "prod" :
