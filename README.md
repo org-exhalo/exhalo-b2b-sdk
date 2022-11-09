@@ -21,7 +21,13 @@ ExhDataManager.shared.{method}
 1. At first you need to initialize SDK by `initialize` method
 
     ```swift
-    ExhDataManager.shared.initialize(projectId: "your-project-id")
+    ExhDataManager.shared.initialize(projectId: "your-project-id", environment: ExhDataEnvironment)
+
+    public enum ExhDataEnvironment {
+        case dev
+        case acc
+        case prod
+    }
     ```
 
 2. In your project, you control the health data permission process (you can request from the user whenever you want, see point 3). After you ask the user for the necessary permissions, you need to show our SDK that we can receive data from HealthKit. You can do it by `setHealthKitPermission` method with `isAccessGranted` argument.
@@ -43,7 +49,7 @@ ExhDataManager.shared.{method}
 
 ## Additional explainer
 
-So you need to initialize SDK every session and call `setHealthKitPermission` once after HealthKit permission are asked. Handling of background -> active is not needed cause every init SDK fetches data for last 16 days
+So you need to initialize SDK every session and call `setHealthKitPermission` once after HealthKit permission are asked. Handling of background -> active is not needed cause every init SDK fetches data for last 3 days
 
 
 
