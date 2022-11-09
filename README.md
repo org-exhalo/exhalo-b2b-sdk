@@ -29,7 +29,10 @@ ExhDataManager.shared.{method}
 ```
 
 ## Usage guide
-1. At first you need to initialize SDK by `initialize` method
+
+Well, the first part is completed. Hooray! Now let's start to use Exhalo SDK.
+
+1. The first step is SDK initialization. First, call the 'initialize' method with the proper environment flag, depending on your purpose. The standard process is to start with acc environment to check that all things are settled down properly. Then contact the Exhalo development team to get prod credentials.
 
     ```swift
     ExhDataManager.shared.initialize(projectId: "your-project-id", environment: ExhDataEnvironment)
@@ -57,10 +60,6 @@ ExhDataManager.shared.{method}
     - Height
     - Sex
     - Age
-
-## Additional explainer
-
-So you need to initialize SDK every session and call `setHealthKitPermission` once after HealthKit permission are asked. Handling of background -> active is not needed cause every init SDK fetches data for last 3 days
 
 
 
