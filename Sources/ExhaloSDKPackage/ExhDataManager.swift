@@ -16,6 +16,9 @@ public class ExhDataManager {
     }
 
     public var showDebug = false
+    
+    /// This property is initialized right after calling `initialize` method, otherwise is `nil`.
+    public private(set) var userId: String?
 
     private init() {}
 
@@ -76,21 +79,30 @@ public class ExhDataManager {
     }
 
     private func createUserUUIDIfNeeded() {
+        let hasUserIdInKeyChain: Bool
+        let userId: String
+        
         if let id = ExhKeyChain.load(key: .userUUID) {
-            Amplitude.instance().setUserId(id);
-            
-            Amplitude.instance().logEvent("sdk_launch", withEventProperties: ["first_open": true])
+            hasUserIdInKeyChain = true
+            userId = id
             
             exhLog("[ExhDataManager] user id configured \(id)")
         } else {
-            let id = ExhKeyChain.save(key: .userUUID, string: ExhKeyChain.createUniqueID())
+            let newUserId = ExhKeyChain.createUniqueID()
+            _ = ExhKeyChain.save(key: .userUUID, string: newUserId)
             
-            Amplitude.instance().setUserId(String(id));
+            hasUserIdInKeyChain = false
+            userId = newUserId
             
-            Amplitude.instance().logEvent("sdk_launch", withEventProperties: ["first_open": false])
-            
-            exhLog("[ExhDataManager] User ID first init: \(id)")
+            exhLog("[ExhDataManager] User ID first init: \(newUserId)")
         }
+            
+        self.userId = userId
+        Amplitude.instance().setUserId(userId)
+        Amplitude.instance().logEvent(
+            "sdk_launch",
+            withEventProperties: ["first_open": !hasUserIdInKeyChain]
+        )
     }
 
     private func fetchData() {
